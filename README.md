@@ -15,6 +15,7 @@ A simple Spring example project covering:
 - [Maven](http://maven.apache.org/download.cgi)
 - [MySql](https://dev.mysql.com/downloads/mysql/)
 - [STS](https://spring.io/tools)
+- [Postman](https://www.getpostman.com/)
 
 ## Links
 
