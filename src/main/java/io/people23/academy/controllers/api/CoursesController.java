@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import io.people23.academy.models.Course;
 import io.people23.academy.repositories.CourseRepository;
+import io.people23.academy.services.CourseService;
 
 @Controller
 @RequestMapping("/api/courses")
@@ -30,22 +31,20 @@ public class CoursesController {
 
 	private CourseRepository repository;
 
+	private CourseService service;
+
 	@Autowired
-	private CoursesController(CourseRepository repository) {
-		this.repository = repository;
+	private CoursesController(CourseService service) {
+		this.service = service;
 	}
 
 	// Return paginated list of courses
 	@GetMapping
 	public @ResponseBody Page<Course> home(Pageable pageable, String filter) {
 
-		logger.info("Paginated Courses");
+		logger.info("Controller Find Page");
 
-		if (filter != null && !filter.isEmpty()) {
-			return this.repository.findByNameContainingIgnoreCase(filter, pageable);
-		}
-
-		return this.repository.findAll(pageable);
+		return this.service.findPaginated(filter, pageable);
 
 	}
 
@@ -53,52 +52,34 @@ public class CoursesController {
 	@GetMapping("/all")
 	public @ResponseBody List<Course> all() {
 
-		logger.info("All Courses");
-		return (List<Course>) this.repository.findAll();
+		return this.service.findAll();
 	}
 
 	@GetMapping("/{id}")
 	public @ResponseBody Course findById(@PathVariable(value = "id") Integer id) {
 
-		logger.info("Find by Id");
-
-		return this.repository.findOne(id);
+		return this.service.findOne(id);
 
 	}
 
 	@PostMapping
 	public @ResponseBody Course create(@Valid @RequestBody Course model) {
 
-		logger.info("Create Course");
-
-		this.repository.save(model);
-
-		return model;
+		return this.service.create(model);
 
 	}
 
 	@PutMapping("/{id}")
 	public @ResponseBody Course update(@PathVariable(value = "id") Integer id, @RequestBody Course course) {
 
-		logger.info("Update Course");
-		Course c = this.repository.findOne(id);
-
-		c.setName(course.getName());
-
-		this.repository.save(c);
-
-		return c;
+		return this.service.update(id, course);
 
 	}
 
 	@DeleteMapping("/{id}")
 	public @ResponseBody String delete(@PathVariable(value = "id") Integer id) {
 
-		logger.info("Delete Course");
-
-		this.repository.delete(id);
-
-		return "{\"message\": \"ok\"}";
+		return this.service.delete(id);
 
 	}
 
