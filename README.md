@@ -20,3 +20,18 @@ A simple Spring example project covering:
 
 https://spring.io/guides
 https://start.spring.io/
+
+## Create project
+
+```
+mkdir -p src/main/java
+mkdir -p src/main/resources
+mkdir -p src/test/java
+mkdir -p src/test/resources
+
+touch src/main/java/.gitkeep
+touch src/main/resources/.gitkeep
+touch src/test/java/.gitkeep
+touch src/test/resources/.gitkeep
+
+```
