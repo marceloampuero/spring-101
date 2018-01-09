@@ -6,6 +6,8 @@ A simple Spring example project covering:
 - Spring MVC
 - Spring JPA
 - Spring Security
+- Spring Actuator
+- Swagger
 
 ## PreRequisites
 
