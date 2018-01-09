@@ -65,26 +65,26 @@
 
 		<!-- JPA Data (We are going to use Repositories, Entities, Hibernate, etc...) -->
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-data-jpa</artifactId> -->
+<!-- 		</dependency> -->
 
 		<!-- DB -->
 		<!-- MySQL -->
 
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>mysql</groupId> -->
+<!-- 			<artifactId>mysql-connector-java</artifactId> -->
+<!-- 		</dependency> -->
 
 		<!-- Oracle -->
 
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<version>12.2.0.1</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.oracle</groupId> -->
+<!-- 			<artifactId>ojdbc8</artifactId> -->
+<!-- 			<version>12.2.0.1</version> -->
+<!-- 		</dependency> -->
 
 
 		<!-- Swagger -->
@@ -103,21 +103,21 @@
 		</dependency>
 
 		<!-- Spring Security -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-security</artifactId> -->
+<!-- 		</dependency> -->
 
-		<dependency>
-			<groupId>org.thymeleaf.extras</groupId>
-			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.thymeleaf.extras</groupId> -->
+<!-- 			<artifactId>thymeleaf-extras-springsecurity4</artifactId> -->
+<!-- 		</dependency> -->
 
-		<dependency>
-			<groupId>org.passay</groupId>
-			<artifactId>passay</artifactId>
-			<version>1.0</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.passay</groupId> -->
+<!-- 			<artifactId>passay</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 		</dependency> -->
 
 
 		<!-- Utilities -->

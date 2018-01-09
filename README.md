@@ -35,3 +35,12 @@ touch src/test/java/.gitkeep
 touch src/test/resources/.gitkeep
 
 ```
+
+## Maven Commands
+```
+mvn eclipse:eclipse #build project
+mvn install #install as dependency
+mvn package #package as war,ear
+```
+
+
