@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +26,8 @@ import io.people23.academy.repositories.CourseRepository;
 @RequestMapping("/api/courses")
 public class CoursesController {
 
+	private static Logger logger = LoggerFactory.getLogger(CoursesController.class);
+
 	private CourseRepository repository;
 
 	@Autowired
@@ -34,6 +38,8 @@ public class CoursesController {
 	// Return paginated list of courses
 	@GetMapping
 	public @ResponseBody Page<Course> home(Pageable pageable, String filter) {
+
+		logger.info("Paginated Courses");
 
 		if (filter != null && !filter.isEmpty()) {
 			return this.repository.findByNameContainingIgnoreCase(filter, pageable);
@@ -46,11 +52,15 @@ public class CoursesController {
 	// Return all courses, for use in select lists
 	@GetMapping("/all")
 	public @ResponseBody List<Course> all() {
+
+		logger.info("All Courses");
 		return (List<Course>) this.repository.findAll();
 	}
 
 	@GetMapping("/{id}")
 	public @ResponseBody Course findById(@PathVariable(value = "id") Integer id) {
+
+		logger.info("Find by Id");
 
 		return this.repository.findOne(id);
 
@@ -58,6 +68,8 @@ public class CoursesController {
 
 	@PostMapping
 	public @ResponseBody Course create(@Valid @RequestBody Course model) {
+
+		logger.info("Create Course");
 
 		this.repository.save(model);
 
@@ -68,6 +80,7 @@ public class CoursesController {
 	@PutMapping("/{id}")
 	public @ResponseBody Course update(@PathVariable(value = "id") Integer id, @RequestBody Course course) {
 
+		logger.info("Update Course");
 		Course c = this.repository.findOne(id);
 
 		c.setName(course.getName());
@@ -80,6 +93,8 @@ public class CoursesController {
 
 	@DeleteMapping("/{id}")
 	public @ResponseBody String delete(@PathVariable(value = "id") Integer id) {
+
+		logger.info("Delete Course");
 
 		this.repository.delete(id);
 
